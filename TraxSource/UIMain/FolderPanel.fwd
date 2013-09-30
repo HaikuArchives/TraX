@@ -1,0 +1,6 @@
+#ifndef FOLDERPANEL_FWD
+#define FOLDERPANEL_FWD
+
+class FolderPanel ;
+
+#endif

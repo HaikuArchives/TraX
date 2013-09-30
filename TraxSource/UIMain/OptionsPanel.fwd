@@ -1,0 +1,6 @@
+#ifndef OPTIONSPANEL_FWD
+#define OPTIONSPANEL_FWD
+
+class OptionsPanel ;
+
+#endif

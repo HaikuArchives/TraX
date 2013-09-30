@@ -1,0 +1,31 @@
+
+ ##################################################################
+ #    (Sub)Makefile for Fast Regexp static library (FINDLIB.a)     #
+ ##################################################################
+ 
+$(FINDLIB_TGT): $(FINDLIB_OBJ_DIR) $(FINDLIB_OB2)
+	$(LD) -o $@ $(FINDLIB_OB2) $(LDFLAGS) $(SHAREDLIB_FLAGS)
+	$(MIMESET)
+
+
+include $(FINDLIB_DE2)
+
+$(FINDLIB_DEP_DIR)/%.d: $(FINDLIB_SRC_DIR)/%.c
+	@[ -d $(FINDLIB_DEP_DIR) ] || mkdir $(FINDLIB_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(FINDLIB_CFLAGS) -odir $(FINDLIB_OBJ_DIR)
+
+$(FINDLIB_DEP_DIR)/%.d: $(FINDUTILS_SRC_DIR)/%.c
+	@[ -d $(FINDLIB_DEP_DIR) ] || mkdir $(FINDLIB_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(FINDLIB_CFLAGS) -odir $(FINDLIB_OBJ_DIR)
+
+$(FINDLIB_OBJ_DIR)/%.o : $(FINDLIB_SRC_DIR)/%.c
+	$(ECHO_FILE)
+	$(MAKE_CC) $(FINDLIB_CFLAGS)
+
+$(FINDLIB_OBJ_DIR)/%.o : $(FINDUTILS_SRC_DIR)/%.c
+	$(ECHO_FILE)
+	$(MAKE_CC) $(FINDLIB_CFLAGS)
+	
+$(FINDLIB_CLEAN) :
+	rm -rf $(FINDLIB_OBJ_DIR) $(FINDLIB_DEP_DIR)
+

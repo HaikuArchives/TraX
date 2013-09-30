@@ -1,0 +1,17 @@
+#ifndef RESULTSITEM_FWD
+#define RESULTSITEM_FWD
+
+/*******************************************************
+ * (c) 1999, Tim Vernum <zodsoft@kagi.com>
+ * All rights reserved
+ *******************************************************
+ * File   : ResultsItem.fwd
+ * Author : Tim Vernum
+ * Project: Trax Application
+ * Purpose: Forward Declaration of ResultsItem class
+ * Licence: Public Domain
+ *******************************************************/
+
+class ResultsItem ;
+
+#endif

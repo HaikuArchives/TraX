@@ -1,0 +1,51 @@
+						Licencing.
+						More Info.
+
+
+==========
+ Licences
+==========
+
+NB: The following is simply an explanation of my reading of the licences.
+    It should not be considered authoritive. If in doubt, read and obey
+       the licence itself.
+
+* AUL
+	The "Acknowledged Use Licence"
+	This is similar to the MIT style licence or the BSD licence (without the advertising clause)
+	In effect, you may use code under the AUL however you like, including incorporating it into a non-free product, so long as you openly state that your product is based upon mine.
+	Something along the lines of
+	"Bob's Super Wizzbang includes code from TraX, written by Tim Vernum"
+	You can put it at the very bottom of the manual, you can put it in the source (if you distribute the source), you can print it in big bold colours and glue it to your head. I don't care, as long as you're honest about where the code came from.
+
+* LGPL
+	The GNU "Library General Public Licence"
+	This allows you to use a "library" as part of your product, provided you make available any changes you make to that library.
+	So if libfoo.so is under the LGPL, you may write a program that links with libfoo, without making that program Free (Open Source), however you must make open, any changes made to libfoo. 
+	Note: I do not consider that the term library refers only to shared or static libs. A C++ class, that is self contained, may be considered a library.
+
+* GPL
+	The GNU "General Public Licence" 
+	If you write a program that includes any code that is under the GPL, then your whole program must be under the GPL.
+	It is for this reason that TraX as a whole is under the GPL, even though some components are under less restrictive licences.
+
+* Public domain
+	One or two files are in the "public domain".
+	This means that you may use it however you like.
+	I have given up all copyright to it.
+
+========
+  Code
+========
+
+* libfind.so
+	This is under the GPL. 95% of the code in it is from GNU find, which is under the GPL.
+	The code that I wrote is under the AUL.
+		
+* libtrax.so
+	The library as a while is under the GPL also, however the majority of the code included in it, is under the AUL, and LGPL.
+	I wrote all code (except for the Benaphore class) that is in this library. Contact me if you want to use it under a different licence, and we'll negotiate.
+
+* TraX , FastTraX
+	Since these link with libfind, they are under the GPL.
+	Most of the code in them is also under the GPL.

@@ -1,0 +1,17 @@
+#ifndef STRINGPOPUP_FWD
+#define STRINGPOPUP_FWD
+
+/*******************************************************
+ * (c) 1999, Tim Vernum <zodsoft@kagi.com>
+ * All rights reserved
+ *******************************************************
+ * File   : StringPopUp.fwd
+ * Author : Tim Vernum
+ * Project: Trax Application
+ * Purpose: Forward Declarations of StringPopUp class
+ * Licence: Public Domain
+ *******************************************************/
+
+class StringPopUp ;
+
+#endif

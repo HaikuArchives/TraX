@@ -1,0 +1,30 @@
+### Set directory if not already set
+ifeq ($(FINDLIB_DIR), )
+	FINDLIB_DIR := ../
+endif
+
+FINDLIB_SRC_DIR   := $(FINDLIB_DIR)/findlib
+FINDUTILS_SRC_DIR := $(FINDLIB_DIR)/findutils
+FINDLIB_OBJ_DIR   := $(FINDLIB_DIR)/$(OBJ_DIR)
+FINDLIB_DEP_DIR   := $(FINDLIB_DIR)/$(DEP_DIR)
+FINDLIB_OUT_DIR   := $(FINDLIB_DIR)/lib
+
+FINDLIB_LIB   := find
+FINDLIB_NAME  := lib$(FINDLIB_LIB).so
+FINDLIB_TGT   := $(FINDLIB_OUT_DIR)/$(FINDLIB_NAME)
+FINDLIB_SRC   := $(wildcard $(FINDLIB_SRC_DIR)/*.c)
+FINDUTILS_SRC := $(wildcard $(FINDUTILS_SRC_DIR)/*.c)
+
+FINDLIB_OBJ   := $(FINDLIB_SRC:.c=.o)
+FINDLIB_DEP   := $(FINDLIB_SRC:.c=.d)
+FINDUTILS_OBJ := $(FINDUTILS_SRC:.c=.o)
+FINDUTILS_DEP := $(FINDUTILS_SRC:.c=.d)
+
+FINDLIB_SR2  = $(FINDLIB_SRC) $(FINDUTILS_SRC)
+FINDLIB_OB2 := $(foreach file, $(FINDLIB_OBJ) $(FINDUTILS_OBJ) , $(addprefix $(FINDLIB_OBJ_DIR)/, $(notdir $(file)))) $(FREGEX_TGT)
+FINDLIB_DE2 := $(foreach file, $(FINDLIB_DEP) $(FINDUTILS_DEP), $(addprefix $(FINDLIB_DEP_DIR)/, $(notdir $(file))))
+
+FINDLIB_CFLAGS  := -I $(FINDLIB_SRC_DIR) -I $(FINDUTILS_SRC_DIR) -I $(FREGEX_DIR)/lib/ -D HAVE_CONFIG_H
+
+FINDLIB_CLEAN   := findlib_clean
+

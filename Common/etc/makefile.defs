@@ -1,0 +1,29 @@
+### Set directory if not already set
+ifeq ($(COMMON_DIR), )
+	COMMON_DIR := ../
+endif
+
+SUPPORT_SRC_DIR  := $(COMMON_DIR)/Support
+UILIB_SRC_DIR    := $(COMMON_DIR)/UI
+COMMON_OBJ_DIR    = $(COMMON_DIR)/$(OBJ_DIR)
+COMMON_DEP_DIR   := $(COMMON_DIR)/$(DEP_DIR)
+COMMON_OUT_DIR   := $(COMMON_DIR)/lib
+
+COMMON_LIB   := Trax
+COMMON_NAME  := lib$(COMMON_LIB).so
+COMMON_TGT   := $(COMMON_OUT_DIR)/$(COMMON_NAME)
+SUPPORT_SRC  := $(wildcard $(SUPPORT_SRC_DIR)/*.cpp)
+UILIB_SRC    := $(wildcard $(UILIB_SRC_DIR)/*.cpp)
+
+SUPPORT_OBJ   := $(SUPPORT_SRC:.cpp=.o)
+SUPPORT_DEP   := $(SUPPORT_SRC:.cpp=.d)
+UILIB_OBJ     := $(UILIB_SRC:.cpp=.o)
+UILIB_DEP     := $(UILIB_SRC:.cpp=.d)
+
+COMMON_SR2  = $(SUPPORT_SRC) $(ULIB_SRC)
+COMMON_OB2 := $(foreach file, $(SUPPORT_OBJ) $(UILIB_OBJ), $(addprefix $(COMMON_OBJ_DIR)/, $(notdir $(file))))
+COMMON_DE2 := $(foreach file, $(SUPPORT_DEP) $(UILIB_DEP), $(addprefix $(COMMON_DEP_DIR)/, $(notdir $(file))))
+
+COMMON_CFLAGS  := -I $(SUPPORT_SRC_DIR) -I $(UILIB_SRC_DIR)
+
+COMMON_CLEAN := common_clean

@@ -1,0 +1,6 @@
+#ifndef TRAXFOLDERPOPUP_FWD
+#define TRAXFOLDERPOPUP_FWD
+
+class TraxFolderPopUp ;
+
+#endif

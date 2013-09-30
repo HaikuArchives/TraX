@@ -1,0 +1,49 @@
+ 
+$(TRAX_TGT): $(FINDLIB_TGT) $(COMMON_TGT) $(TRAX_OBJ_DIR) $(TRAX_OB2) $(TRAX_RSRC)
+	$(MAKE_BEAPP) $(TRAX_LDFLAGS) $(TRAX_OB2)
+	$(ADD_RSRCS) $(TRAX_RSRC)
+	$(MIMESET)
+
+$(TRAX_INSTALL): $(TRAX_TGT) $(TRAX_LIB_DIR) $(TRAX_LIBS)
+	@date "+%a %x, %X" >> $@
+	@echo "Remade targets: $?" >> $@
+	@echo "Installing TraX as $(TRAX_TGT)" >> $@
+	@echo "======================================================" >> $@
+	$(TRIM_LOG)
+	@echo "======================================================"
+	@echo "TraX Installed"
+	@echo "======================================================"
+
+$(TRAX_LIB_DIR):
+	$(MAKE_DIR)
+
+$(TRAX_LIBFIND): $(FINDLIB_TGT)
+	$(MAKE_CP)
+	$(MIMESET)
+
+$(TRAX_LIBCOMMON): $(COMMON_TGT)
+	$(MAKE_CP)
+	$(MIMESET)
+
+
+include $(TRAX_DE2)
+
+$(TRAX_DEP_DIR)/%.d: $(TRAXMAIN_SRC_DIR)/%.cpp
+	@[ -d $(TRAX_DEP_DIR) ] || mkdir $(TRAX_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(TRAX_CFLAGS) -odir $(TRAX_OBJ_DIR)
+
+$(TRAX_DEP_DIR)/%.d: $(TRAXUI_SRC_DIR)/%.cpp
+	@[ -d $(TRAX_DEP_DIR) ] || mkdir $(TRAX_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(TRAX_CFLAGS) -odir $(TRAX_OBJ_DIR)
+
+$(TRAX_OBJ_DIR)/%.o : $(TRAXMAIN_SRC_DIR)/%.cpp
+	$(ECHO_FILE)
+	$(MAKE_CC) $(TRAX_CFLAGS)
+
+$(TRAX_OBJ_DIR)/%.o : $(TRAXUI_SRC_DIR)/%.cpp
+	$(ECHO_FILE)
+	$(MAKE_CC) $(TRAX_CFLAGS)
+
+$(TRAX_CLEAN) :
+	rm -fr $(TRAX_OBJ_DIR) $(TRAX_DEP_DIR)
+	

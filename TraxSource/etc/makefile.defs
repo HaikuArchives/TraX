@@ -1,0 +1,39 @@
+### Set directory if not already set
+ifeq ($(TRAX_DIR), )
+	TRAX_DIR := ..
+endif
+
+TRAXMAIN_SRC_DIR  := $(TRAX_DIR)/main
+TRAXUI_SRC_DIR    := $(TRAX_DIR)/UIMain
+TRAX_OBJ_DIR      := $(TRAX_DIR)/$(OBJ_DIR)
+TRAX_DEP_DIR      := $(TRAX_DIR)/$(DEP_DIR)
+TRAX_OUT_DIR      := $(MAIN_DIR)/bin
+TRAX_LIB_DIR      := $(TRAX_OUT_DIR)/lib
+TRAX_ETC_DIR      := $(TRAX_DIR)/etc
+
+TRAX_LIBFIND      := $(TRAX_LIB_DIR)/$(notdir $(FINDLIB_TGT))
+TRAX_LIBCOMMON    := $(TRAX_LIB_DIR)/$(notdir $(COMMON_TGT))
+TRAX_LIBS         := $(TRAX_LIBFIND) $(TRAX_LIBCOMMON)
+
+TRAX_RSRC      := $(TRAX_ETC_DIR)/TraX.rsrc
+TRAX_TGT       := $(TRAX_OUT_DIR)/TraX
+TRAX_INSTALL   := $(ETC_DIR)/trax_install_log
+TRAXMAIN_SRC   := $(wildcard $(TRAXMAIN_SRC_DIR)/*.cpp)
+TRAXUI_SRC     := $(wildcard $(TRAXUI_SRC_DIR)/*.cpp)
+
+TRAXMAIN_OBJ   := $(TRAXMAIN_SRC:.cpp=.o)
+TRAXMAIN_DEP   := $(TRAXMAIN_SRC:.cpp=.d)
+TRAXUI_OBJ := $(TRAXUI_SRC:.cpp=.o)
+TRAXUI_DEP := $(TRAXUI_SRC:.cpp=.d)
+
+TRAX_SR2  = $(TRAXMAIN_SRC) $(TRAXUI_SRC)
+TRAX_OB2 := $(foreach file, $(TRAXMAIN_OBJ) $(TRAXUI_OBJ) , $(addprefix $(TRAX_OBJ_DIR)/, $(notdir $(file))))
+TRAX_DE2 := $(foreach file, $(TRAXMAIN_DEP) $(TRAXUI_DEP), $(addprefix $(TRAX_DEP_DIR)/, $(notdir $(file))))
+
+TRAX_CFLAGS  := -I $(TRAXMAIN_SRC_DIR) -I $(TRAXUI_SRC_DIR) -I $(FINDLIB_OUT_DIR) -I $(SUPPORT_SRC_DIR) -I $(UILIB_SRC_DIR)
+TRAX_LDFLAGS := -L $(FINDLIB_OUT_DIR) -L $(COMMON_OUT_DIR) -l$(FINDLIB_LIB) -l$(COMMON_LIB)
+
+TRAX_CLEAN := trax_clean
+
+vpath %.cpp $(TRAXMAIN_SRC_DIR) $(TRAXUI_SRC_DIR)
+

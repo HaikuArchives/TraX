@@ -1,0 +1,76 @@
+##################################
+#
+#   Overall makefile for Trax
+#
+##################################
+
+SYS_VERS  := r$(shell uname -r)
+OBJ_DIR   := obj.$(SYS_VERS)
+DEP_DIR   := depends
+
+MAIN_DIR     := .
+ETC_DIR      := $(MAIN_DIR)/etc
+FREGEX_DIR   := FRegex
+FINDLIB_DIR  := FindLib
+COMMON_DIR   := Common
+TRAX_DIR     := TraxSource
+FASTTRAX_DIR := FastTrax
+
+OPTIMIZER		=	-O3
+
+CC		     	:=	gcc
+CFLAGS			 =	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy
+
+LD				:=	gcc
+LDFLAGS			:=	
+SHAREDLIB_FLAGS	 = -nostart -Xlinker -soname=$(notdir $@)
+APP_FLAGS        = -Xlinker -soname=_APP_
+
+XRES		    := xres
+
+MAKE_DIR         = @[ -d $@ ] || mkdir $@ > /dev/null 2>&1
+MAKE_CP          = cp $< $@
+ECHO_FILE		 = @echo " --  File: $<"
+ECHO_TGT		 = @echo " --  File: $@"
+MAKE_DEPEND		 = ./etc/MakeDepend.sh $(CFLAGS) -c $< -dep $@
+MAKE_CC			 = $(CC) $(CFLAGS) -c $< -o $@
+MAKE_LIB		 = $(LD) -o $@ $(LDFLAGS) $(SHAREDLIB_FLAGS)
+MAKE_BELIB		 = $(MAKE_LIB) -lbe
+MAKE_TRACKERLIB  = $(MAKE_BELIB) -ltracker
+MAKE_APP		 = $(LD) -o $@ $(LDFLAGS) $(APP_FLAGS)
+MAKE_BEAPP		 = $(MAKE_APP) -lbe
+MAKE_TRACKERAPP  = $(MAKE_BEAPP) -ltracker
+ADD_RSRCS        = $(XRES) -o $@
+MIMESET			 = mimeset -f $@
+TRIM_LOG		 = ./etc/TrimLog.sh $@ 250
+
+
+include   $(FREGEX_DIR)/etc/makefile.defs
+include  $(FINDLIB_DIR)/etc/makefile.defs
+include   $(COMMON_DIR)/etc/makefile.defs
+include     $(TRAX_DIR)/etc/makefile.defs
+include $(FASTTRAX_DIR)/etc/makefile.defs
+
+all: install
+.PHONY : all
+
+install: $(TRAX_INSTALL) $(FASTTRAX_INSTALL)
+.PHONY : install
+
+include   $(FREGEX_DIR)/etc/makefile.rules
+include  $(FINDLIB_DIR)/etc/makefile.rules
+include   $(COMMON_DIR)/etc/makefile.rules
+include     $(TRAX_DIR)/etc/makefile.rules
+include $(FASTTRAX_DIR)/etc/makefile.rules
+
+%$(DEP_DIR)::
+	$(MAKE_DIR)
+
+%$(OBJ_DIR)::
+	$(MAKE_DIR)
+
+clean: $(FREGEX_CLEAN) $(FINDLIB_CLEAN) $(COMMON_CLEAN) $(TRAX_CLEAN) $(FASTTRAX_CLEAN)
+	@echo "========= CLEANED ============="
+
+installer:
+	etc/MakeInstall.sh

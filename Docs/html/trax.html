@@ -1,0 +1,299 @@
+<HTML>
+<HEAD>
+<TITLE>
+TraX
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="black" TEXT="white" LINK="yellow" VLINK="#00aaff">
+
+<p align=center>
+
+<h1>
+<IMG SRC="gfx/icon_t.gif">&nbsp;
+<FONT COLOR="blue">T</FONT>ra<FONT COLOR="red">X</FONT>
+&nbsp;<IMG SRC="gfx/icon_t.gif">
+</h1>
+
+<hr>
+<TABLE WIDTH="100%">
+
+<TR>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[i]</FONT>
+<FONT COLOR="red"><A HREF="#Overview">
+Overview</A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[ii]</FONT>
+<FONT COLOR="red"><A HREF="#FindIn">
+<code>Find In</code></A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[iii]</FONT>
+<FONT COLOR="red"><A HREF="#Options">
+The Options Panel</A></FONT>
+
+<TR>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[iv]</FONT>
+<FONT COLOR="red"><A HREF="#Criteria">
+Putting together the criteria</A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[v]</FONT>
+<FONT COLOR="red"><A HREF="#Name">
+Searching by <code>Name</code></A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[vi]</FONT>
+<FONT COLOR="red"><A HREF="#Extension">
+Searching by <code>Extension</code></A></FONT>
+
+<TR>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[vii]</FONT>
+<FONT COLOR="red"><A HREF="#Size">
+Searching by <code>Size</code></A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[viii]</FONT>
+<FONT COLOR="red"><A HREF="#Modified">
+Searching by <code>Modified</code></A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[ix]</FONT>
+<FONT COLOR="red"><A HREF="#Created">
+Searching by <code>Created</code></A></FONT>
+
+<TR>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[x]</FONT>
+<FONT COLOR="red"><A HREF="#Kind">
+Searching by <code>Kind</code></A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[xi]</FONT>
+<FONT COLOR="red"><A HREF="#Contains">
+Searching by <code>Contains</code></A></FONT>
+
+<TD ALIGN="CENTER">
+<FONT SIZE=-1>[xii]</FONT>
+<FONT COLOR="red"><A HREF="#Conjunctions">
+Using conjunctions and grouping</A></FONT>
+
+</TABLE>
+<hr>
+
+<A NAME="Overview">
+<h3>Overview</h3>
+
+TraX is a utility to find files on any mounted disk.
+It bares some resemblence the Find File tool on MacOS <i>(but with much more power,
+ to match the more powerful OS it runs on)</i><br>
+The design of TraX is based upon the <code>find</code> utility from UNIX
+ <A NAME="body_unix1" HREF="#foot_unix1">*</A>. It uses &quot;predicates&quot; to
+ build up quite powerful expressions that give you great flexibilty over the files
+ you search for.<br>
+ For example you could search for
+<UL>
+<LI>All files in /boot/home/ and subdirectories
+<LI>to a maximum depth of 3 folders
+<LI>with a filename starting with the letters 'tc' followed by any number of digits and then the '.sp' extension
+<LI>that contains either the text 'delete' or 'truncate' (in any case)
+<LI>and was either
+    <UL>
+    <LI>modified sometime during May,
+    <LI>or created in May and modified in June or later
+    </UL>
+</UL>
+That's a fairly complex search task, but
+<A HREF="complex.html">TraX can do it</A> all within a simple GUI (of course,
+ you need a pretty high resolution to fit it on one screen.)
+<p>
+If all this seems a bit too complicated, you might like to look at
+ <A HREF="fasttrax.html">FastTraX</A>.
+
+<p>
+<hr>
+
+<A NAME="FindIn">
+<h3><code>Find In</code></h3>
+
+When you open TraX, the top of the window will display a popup menu with the
+ label &quot;<code>Find In Folder</code>&quot;. If you launch TraX with a
+ specific folder (either by using &quot;Open With...&quot;, or by dragging a
+ folder onto the TraX icon) then this popup will start in that folder. Otherwise
+ it will start with the root (&quot;<code>/</code>&quot;) directory.<br>
+Selecting this menu will bring up a list of folders to choose from, or you can
+ choose your own.<br>
+At the top of the menu is the root folder, and all your mounted disks. If the only
+ disk you have mounted is your main BeOS disk, then this will be labeled "/boot/"
+ and no other disks will be visible. If you have any other mounted disks (of any
+ filesystem type) they will also be visible.<br>
+Below the disks are a number of important folders:
+<UL>
+<LI><CODE>/boot/home</CODE> - your home directory
+<LI><CODE>/boot/home/Desktop</CODE> - your Desktop
+<LI><CODE>/boot/beos</CODE> - the BeOS system folder
+<LI><CODE>/boot/optional</CODE> - the optional items folder (if installed)
+</UL>
+Below this is the &quot;<CODE>other...</CODE>&quot; option. Selecting this
+ will bring up an <code>Open</code> window to allow you to select any other folder
+ you wish.
+
+<p>
+<hr>
+
+<A NAME="Options">
+<h3>The Options Panel</h3>
+
+At the bottom of the TraX window is a panel with a few buttons and an edit box.<br>
+This is the options panel for your search.<br>
+
+<p>
+<h5>The <CODE>+</CODE> and <CODE>-</CODE> buttons</h5>
+
+These buttons add and remove panels from the Window.<br>
+Adding a new panel allows you to add more criteria to your search. See
+<A HREF="#Criteria">Putting together the criteria</A><br>
+Click the <CODE>+</CODE> button to add a panel at the bottom of the criteria.
+Click the <CODE>-</CODE> button to remove the bottom criteria panel.
+
+<p>
+<h5><CODE>Maximum Subfolder Depth</CODE></h5>
+
+This field has both a check box, and an edit box.<br>
+If the check box is marked when you perform your search (ie click the
+ <CODE>Find</CODE> button), then TraX will only search to the depth specified
+ in the edit box. eg, Place a '0' in the edit box, and TraX will only search
+ the files in the folder you specified (ie no subdirectories)
+ <A NAME="body_maxdepth1" HREF="#foot_maxdepth1">*</A>.<p>
+
+<p>
+<h5>The <CODE>Find</CODE> Button</h5>
+
+Click here to start the find.<br>
+The current version of the find library TraX uses can only perform one search
+ at a time. Therefore, the <CODE>Find</CODE> button will be disabled while
+ a search is underway.<br>
+
+<p>
+<hr>
+
+<A NAME="Criteria">
+<h3>Putting together the criteria</h3>
+TraX is designed to allow you to easily design complex search expressions.
+ Although you can use TraX for simple searches, it excels at performing
+ advanced searches quickly and easily.<br>
+TraX is based around &quot;predicates&quot; and &quot;conjunctions&quot; (with
+ negations and grouping thrown in).<br>
+A predicate is an expression like &quot;size less than 10 kB&quot; or 
+ &quot;name contains 'txt'&quot;<br>
+A conjunction is something that joins two predicates together (&quot;or&quot;
+, &quot;and&quot;)<br>
+Selecting a conjunction, allows you to specify whether you wish to find only
+ those files which match all your predicates, or all files that match at
+ least one of your prdicates. Of course, by using grouping and conjunctions
+ together, you can specify that some predicates must all be met, while only
+ one of another set need be met. TraX gives you this flexibility.<br>
+TraX uses brackets &quot;(&quot; and &quot;)&quot; to group sets of
+ predicates and conjunctions together. So the expression:
+<pre>
+  (
+       Name begins with Be
+  or   Name begins with Mac
+  )
+  and  Name ends with OS
+</pre>
+finds &quot;BeOS&quot; and &quot;MacOS&quot; and &quot;Better OS&quot;
+ but not &quot;PIOS&quot; , &quot;Beep&quot; or &quot;The BeOS&quot;<br>
+TraX also has the ability to negate a predicate so
+<pre>
+         Name begins with Be
+ and not Name ends with OS
+</pre>
+will find &quot;BeBox&quot; but not &quot;BeOS&quot;<br>
+You can also negate groups thus
+<pre>
+  not (
+          Extension is txt
+      or  Extension is doc
+      )
+</pre>
+is the same as
+<pre>
+          Extension isn't txt
+     and  Extension isn't doc
+</pre>
+that is, it finds all files except those ending in <code>.txt</code> or
+ <code>.doc</code><br>
+For info on how to put these expression into TraX, see <A HREF="#conjuctions">
+Using conjunctions and grouping</A><br>
+The important thing to realise at this point is that TraX splits its window into
+ these components as shown below:
+<A NAME="Image">
+<IMG SRC="gfx/t_sections.jpg">
+  
+<p>
+<hr>
+<p>
+<I>
+Due to serious time contraints, I have been unable to complete this set of
+ documentation.<br>
+If you require assistance, feel free to mail me at:
+<A HREF="mailto:zodsoft@kagi.com">zodsoft@kagi.com</A><br>
+If anyone is willing to complete the documentation, please feel free to do so,
+ and forward to me at the above address.<p>
+Thankyou,</I>
+Tim Vernum.
+<p>
+<hr>
+
+<A NAME="SeeAlso">
+<h3>See Also</h3>
+<UL>
+<LI><A HREF="#results">The Results Window</A>
+<LI><A HREF="#scripting">Scripting TraX</A>
+<LI><A HREF="#glob">Globs</A>
+<LI><A HREF="#regex">Regular Expressions</A>
+</UL>
+
+<p>
+
+<hr>
+<H3><i>Footnotes</i></H3>
+<FONT SIZE=-2>
+
+<A NAME="foot_unix1" HREF="#body_unix1">&quot;find utility from UNIX&quot;</A><br>
+Actually it's based on <A HREF="http://www.gnu.org">GNU</A> <code>find</code>
+ which has more options than plain old <code>find</code>, so you could say it's
+ based on find from &quot;Not Unix&quot;.
+<p>
+<A NAME="foot_maxdepth1" HREF="#body_maxdepth1">Maxdepth</A><br>
+Users of <code>find</code> should note that this behaviour is slightly different
+   to that displayed by GNU <code>find</code>. Find treats -maxdepth 0 to mean
+   that only the root of the search should be considered, and -maxdepth 1 will
+   search for entries within the folders in the path-list. ie, In find, maxdepth
+   refers to the depth of the leaf being considered, while in TraX it refers to
+   the depth of the parent of that leaf.
+<br>
+</FONT>
+<p>
+<hr>
+
+Documentation Copyright (C) 1999, Tim Vernum.<br>
+Images Copyright (C) 1999, with the exception of the User and Developer Icons,
+ Copyright Be Inc.<br>
+All rights reserved.
+<p>
+<i>
+<A HREF="mailto:zodsoft@kagi.com">Tim Vernum</A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3rd July 1999
+
+</BODY>
+</HTML>

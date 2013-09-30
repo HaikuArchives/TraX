@@ -1,0 +1,20 @@
+
+ ##################################################################
+ #    (Sub)Makefile for Fast Regexp static library (fregex.a)     #
+ ##################################################################
+ 
+$(FREGEX_TGT): $(FREGEX_OBJ_DIR) $(FREGEX_OB2)
+	ar -cru $(FREGEX_TGT) $(FREGEX_OB2)
+
+include $(FREGEX_DE2)
+
+$(FREGEX_DEP_DIR)/%.d: $(FREGEX_SRC_DIR)/%.c
+	@[ -d $(FREGEX_DEP_DIR) ] || mkdir $(FREGEX_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) -odir $(FINDLIB_OBJ_DIR)
+
+$(FREGEX_OBJ_DIR)/%.o : $(FREGEX_SRC_DIR)/%.c
+	$(ECHO_FILE)
+	$(MAKE_CC)
+
+$(FREGEX_CLEAN):
+	rm -rf $(FREGEX_OBJ_DIR) $(FREGEX_DEP_DIR)

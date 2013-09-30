@@ -1,0 +1,24 @@
+### Set directory if not already set
+ifeq ($(FREGEX_DIR), )
+	FREGEX_DIR := ../
+endif
+
+FREGEX_SRC_DIR := $(FREGEX_DIR)/source
+FREGEX_OBJ_DIR := $(FREGEX_DIR)/$(OBJ_DIR)
+FREGEX_DEP_DIR := $(FREGEX_DIR)/$(DEP_DIR)
+FREGEX_OUT_DIR := $(FREGEX_DIR)/lib
+
+FREGEX_TGT := $(FREGEX_OUT_DIR)/fregex.a
+FREGEX_SRC := fast_regex.c \
+             dfa.c        \
+             kwset.c      \
+             obstack.c
+
+FREGEX_OBJ := $(FREGEX_SRC:.c=.o)
+FREGEX_DEP := $(FREGEX_SRC:.c=.d)
+
+FREGEX_SR2  = $(foreach file, $(FREGEX_SRC) , $(addprefix $(FREGEX_SRC_DIR)/, $(file)))
+FREGEX_OB2 := $(foreach file, $(FREGEX_OBJ) , $(addprefix $(FREGEX_OBJ_DIR)/, $(file)))
+FREGEX_DE2 := $(foreach file, $(FREGEX_DEP) , $(addprefix $(FREGEX_DEP_DIR)/, $(file)))
+
+FREGEX_CLEAN := fregex_clean

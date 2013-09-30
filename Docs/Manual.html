@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>TraX -- Manual</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#FFFFFF" LINK="#FFFF77">
+<hr>
+<p align=center>
+<H1>
+    <IMG SRC="html/gfx/icon_t.gif" HEIGHT="40" WIDTH="40" ALT="[TraX]">
+    &nbsp;
+    <b>	<FONT
+SIZE=+4 COLOR="#0000FF">T</FONT><FONT
+SIZE=+4 COLOR="#AAAAAA">ra</FONT><FONT
+SIZE=+4 COLOR="#FF0000">X</FONT></b>
+    &nbsp;
+    <IMG SRC="html/gfx/icon_ft.gif" HEIGHT="40" WIDTH="40" ALT="[FastTraX]">
+</H1>
+<i>TraX finds stuff...</i><hr>
+<br>
+This file is a manual for using the TraX utility on BeOS.<br>
+TraX is a tool for finding files on your Disks.<br>
+Its features include:
+<UL>
+<LI>Can search any file-system type.&nbsp;
+    <A NAME="body_fstype1" HREF="#foot_fstype1">*</A>
+<LI>Can search within specified folders
+<LI>Can search for included text
+<LI>Has logical operators: <code>and , or , not, ( , )</code>
+<LI>Regular expression matching
+<LI>High Speed.</LI>&nbsp;
+    <A NAME="body_speed1" HREF="#foot_speed1">*</A>
+</UL>
+<p>
+This manual includes information for users and developers.<br>
+Sections marked with&nbsp;<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+&nbsp;contain information for users.<br>
+Sections marked with&nbsp;<IMG SRC="html/gfx/dev.gif" HEIGHT="32" WIDTH="32">
+&nbsp;contain information for developers.
+<P>
+<hr>
+
+<H3>Contents</H3>
+
+<IMG SRC="html/gfx/icon_ft.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="fasttrax" HREF="html/fasttrax.html">Using FastTraX</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/fasttrax.html#Overview"><LI></A>Overview
+<A HREF="html/fasttrax.html#NamePanel"><LI></A>The <code>Name</code> Panel
+<A HREF="html/fasttrax.html#FilePanel"><LI></A>The <code>File</code> Panel
+<A HREF="html/fasttrax.html#DatePanel"><LI></A>The <code>Date</code> Panel
+<LI>See also:
+<A HREF="#settings">Settings</A> ,
+<A HREF="#results">The Results Window</A> ,
+<A HREF="#glob">Globs</A>
+</UL>
+
+<br>
+
+<IMG SRC="html/gfx/icon_t.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="trax" HREF="html/trax.html">Using TraX</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/trax.html#Overview"><LI></A>Overview
+<A HREF="html/trax.html#FindIn"><LI></A><code>Find In</code>
+<A HREF="html/trax.html#Options"><LI></A>The Options Panel
+<A HREF="html/trax.html#Criteria"><LI></A>Putting together the criteria
+<A HREF="html/trax.html#Name"><LI></A>Searching by <code>Name</code>
+<A HREF="html/trax.html#Extension"><LI></A>Searching by <code>Extension</code>
+<A HREF="html/trax.html#Size"><LI></A>Searching by <code>Size</code>
+<A HREF="html/trax.html#Modified"><LI></A>Searching by <code>Modified</code>
+<A HREF="html/trax.html#Created"><LI></A>Searching by <code>Created</code>
+<A HREF="html/trax.html#Kind"><LI></A>Searching by <code>Kind</code>
+<A HREF="html/trax.html#Contains"><LI></A>Searching by <code>Contains</code>
+<A HREF="html/trax.html#Conjunctions"><LI></A>Using conjunctions and grouping
+<LI>See also:
+<A HREF="#settings">Settings</A> ,
+<A HREF="#results">The Results Window</A> ,
+<A HREF="#scripting">Scripting TraX</A> ,
+<A HREF="#glob">Globs</A> ,
+<A HREF="#regex">Regular Expressions</A> 
+</UL>
+
+<br>
+
+<IMG SRC="html/gfx/icon_w.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="settings" HREF="html/settings.html">Settings</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/settings.html#Overview"><LI></A>Overview
+<A HREF="html/settings.html#General"><LI></A>General Settings
+<A HREF="html/settings.html#TraX"><LI></A>Additional TraX Settings
+</UL>
+
+<br>
+
+<IMG SRC="html/gfx/icon_w.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="results" HREF="html/results.html">The Results Window</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/results.html#Overview"><LI></A>Overview
+<A HREF="html/results.html#Selecting"><LI></A>Selecting Items
+<A HREF="html/results.html#Invoking"><LI></A>Invoking Items
+</UL>
+
+<br>
+
+<IMG SRC="html/gfx/icon_s.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="scripting" HREF="html/scripting.html">Scripting TraX</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<IMG SRC="html/gfx/dev.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/scripting.html#Overview"><LI></A>Overview
+<A HREF="html/scripting.html#Layout"><LI></A>The Window Layout
+<A HREF="html/scripting.html#Folder"><LI></A>Setting the Folder
+<A HREF="html/scripting.html#PopUps"><LI></A>Setting PopUps
+<A HREF="html/scripting.html#EditBox"><LI></A>Setting Edit Boxes
+<A HREF="html/scripting.html#Options"><LI></A>Setting Options
+<A HREF="html/scripting.html#Panels"><LI></A>Adding Panels
+<A HREF="html/scripting.html#Find"><LI></A>Starting the Find
+<A HREF="html/scripting.html#Colours"><LI></A>Setting Colours
+<A HREF="html/scripting.html#Focus"><LI></A>Setting Focus
+<A HREF="html/scripting.html#Example"><LI></A>An Example: <code>SearchHeaders.sh</code>
+</UL>
+
+<br>
+
+<IMG SRC="html/gfx/icon_g.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="glob" HREF="html/glob.html">Globs</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<IMG SRC="html/gfx/dev.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/glob.html#Overview"><LI></A>Overview
+</UL>
+
+<br>
+
+<IMG SRC="html/gfx/icon_re.gif" HEIGHT="40" WIDTH="40">
+&nbsp;&nbsp;<FONT SIZE+=2>
+<A NAME="regex" HREF="html/regex.html">Regular Expressions</A>
+</FONT>&nbsp;
+<IMG SRC="html/gfx/user.gif" HEIGHT="32" WIDTH="32">
+<IMG SRC="html/gfx/dev.gif" HEIGHT="32" WIDTH="32">
+<br>
+<UL>
+<A HREF="html/regex.html#Overview"><LI></A>Overview
+</UL>
+
+<p>
+<hr>
+<i>
+<FONT SIZE=-1>
+Move information, particular developer information needs to be written, but at this
+stage is has been more important to me to get this into the hands of users.
+I intend to document the code a fair bit more, and give some details for anyone
+who wants to contribute, but for now, this is it.
+</FONT>
+</i>
+
+<hr>
+<p>
+
+Documentation Copyright (C) 1999, Tim Vernum.<br>
+Images Copyright (C) 1999, with the exception of the User and Developer Icons,
+ Copyright Be Inc.<br>
+All rights reserved.
+<p>
+<i>
+<A HREF="mailto:zodsoft@kagi.com">Tim Vernum</A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27th June 1999
+
+<hr>
+<H3><i>Footnotes</i></H3>
+<FONT SIZE=-2>
+<A NAME="foot_fstype1" HREF="#body_fstype1">&quot;any file-system type&quot;</A><br>
+Searches FAT & BFS drives. Can theoretically search any file-system that BeOS
+ can mount with a POSIX interface
+<p>
+<A NAME="foot_speed1" HREF="#body_speed1">&quot;High Speed&quot;</A><br>
+TraX is based upon GNU findutils, which are very fast.<br>
+I believe that libfind.so, which TraX uses to find files is close to the fastest way
+ to find files without having precached information (such as indices)<br>
+Thus TraX will not be as fast as a BeOS query using an index, but because TraX
+doesn't rely on indices, it can offer more features. 
+</FONT>
+
+
+</BODY>
+</HTML>

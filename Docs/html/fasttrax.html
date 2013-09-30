@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<TITLE>
+FastTraX
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="black" TEXT="white" LINK="yellow" VLINK="#00aaff">
+
+<p align=center>
+
+<h1>
+<IMG SRC="gfx/icon_ft.gif">&nbsp;
+<FONT COLOR="red"><i>Fast</i></FONT>TraX
+&nbsp;<IMG SRC="gfx/icon_ft.gif">
+</h1>
+
+<hr>
+<TABLE WIDTH="100%">
+<TD ALIGN="CENTER">
+<FONT COLOR="red"><A HREF="#Overview">Overview</A></FONT>
+<TD ALIGN="CENTER">
+<FONT COLOR="red"><A HREF="#NamePanel">The <code>Name</code> Panel</A></FONT>
+<TD ALIGN="CENTER">
+<FONT COLOR="red"><A HREF="#FilePanel">The <code>File</code> Panel</A></FONT>
+<TD ALIGN="CENTER">
+<FONT COLOR="red"><A HREF="#DatePanel">The <code>Date</code> Panel</A></FONT>
+</TABLE>
+<hr>
+
+<A NAME="Overview">
+<h3>Overview</h3>
+
+FastTraX is a simple utility to find files. It closely resembles the Find File tool
+ on Windows.<br>
+FastTrax gives a number of edit controls to allow you to enter criteria for finding
+ a file. These are separated into three panels described below.<br>
+When you click the &nbsp;<code>Find</code>&nbsp; button, FastTraX will search
+ within the specified location, for files which match <STRONG>all</STRONG>
+ the criteria you have specified. Edit boxes that are empty are ignored.<br>
+If you require more flexibility than this, please look at
+ <A HREF="trax.html">TraX</A>.
+
+<hr>
+
+<A NAME="NamePanel">
+<h3>The <code>Name</code> Panel</h3>
+
+When FastTraX opens, it starts in the <code>Name</code> Panel.<br>
+This panel allows you to specify
+<UL>
+<LI>Where you wish to search
+<LI>What filename to search for
+<LI>Whether to include subdirectories
+</UL>
+
+<p>
+<h5><b>Where to search</b></h5>
+
+There is a PopUp menu on the <code>Name</code> panel labeled <code>Find in:</code><br>
+If you open FastTrax by dragging a folder onto its icon, or by using the "Open With"
+ menu in Tracker, then this Popup will start with the selected folder. Otherwise
+ it will start with the 'root' directory, &quot;/&quot;.<br>
+Selecting this menu will bring up a list of folders to choose from, or you can
+ choose your own.<br>
+At the top of the menu is the root folder, and all your mounted disks. If the only
+ disk you have mounted is your main BeOS disk, then this will be labeled "/boot/"
+ and no other disks will be visible. If you have any other mounted disks (of any
+ filesystem type) they will also be visible.<br>
+Below the disks are a number of important folders:
+<UL>
+<LI><CODE>/boot/home</CODE> - your home directory
+<LI><CODE>/boot/home/Desktop</CODE> - your Desktop
+<LI><CODE>/boot/beos</CODE> - the BeOS system folder
+<LI><CODE>/boot/optional</CODE> - the optional items folder (if installed)
+</UL>
+Below this is the &quot;<CODE>other...</CODE>&quot; option. Selecting this
+ will bring up an <code>Open</code> window to allow you to select any other folder
+ you wish.
+
+<p>
+<h5><b>What the file is named</b></h5>
+
+The <i>EditBox</i> labeled <Code>Named:</Code> is where you can type in the name
+ of the file you are looking for.<br>
+This field uses <i><code><A HREF="glob.html">globs</A></code</i>, thus to seach
+ for all gif images you could put <code>*.gif</code> into this box.<br>
+To search for all files containing "be" in their name, try <code>*be*</code><br>
+All names used are <i>case-insensitive</i>, thus <code>*.txt</code> is the same
+ as <code>*.TXT</code> or <code>*.TxT</code>&nbsp; (etc)<br>
+You can leave this field blank to find all matching files, regardless of name.
+
+<p>
+<h5><b>Include Sub-Directories</b></h5>
+Leaved this box checked to have the search descend into subdirectories of the
+ selected folder.<br>
+Uncheck it to search only at one level.
+
+<p>
+<hr>
+
+<A NAME="FilePanel">
+<h3>The <code>File</code> Panel</h3>
+
+The <Code>File</Code> panel is where you can place restrictions on the size, type
+ and contents of a file.<br>
+To access the <code>File</code> panel, click the <code>File</code> button at the top
+ of the FastTraX window.<br>
+The fields on this panel are:
+<UL>
+<LI><Code>Containing Text</Code> where you can search for a file based on its
+ contents.
+<LI><Code>Size at least</Code> , <Code>Size less than</Code> where you can place
+ restrictions on the size of the files you wish to find.
+<LI><Code>Kind</Code>, allowing you to search for a Folder, Plain File or Symbolic
+ Link.
+</UL>
+
+<p>
+<h5><b><CODE>Containing Text</CODE></b></h5>
+
+In this Edit Box, you can type in some text that you wish to search for.<br>
+This must be plain text - the seach does not use globs or regular expressions.<br>
+Putting text in this field will also cause the search to be restricted to plain
+ files only, as only these can contain text. (NB: The &quot;<code>Kind</code>&quot;
+ popup will NOT change to indicate this, but so that the search will work correctly,
+ the restriction will be added when you commence the search)<br>
+
+<p>
+<h5><b><CODE>Size</CODE>...</b></h5>
+
+There are two Edit Boxes for entering a file size in. You can use either, or both.<br>
+<CODE>Size at least:</CODE>&nbsp;-&nbsp the minimum size of the file to find.<br>
+<CODE>Size less than:</CODE>&nbsp;-&nbsp the maximum size of the file to find.<br>
+As you can see, by placing the lower bound on the size in the top box, and the upper
+ bound in the bottom box, you can specify that the files found are to fall within a
+ given range of sizes.
+<TABLE>
+<TD><IMG SRC="gfx/ft_size.gif">
+<TD><i>eg</i> The screenshot to the left shows how to search for a file that is
+ between 50kB and 200kB in size.
+</TABLE>
+
+<p>
+<h5><b><CODE>Kind</CODE></b></h5>
+
+The <CODE>Kind</CODE> PopUp allows you to specify the kind of filesystem entity you
+ are looking for.<br>
+This must be one of <CODE>File</CODE> , <CODE>Folder</CODE> , <CODE>Link</CODE> or
+ &quot;Any&quot;<br>
+You cannot search for <i>Filetypes</i> in this version of FastTraX.<br>
+
+<p>
+<hr>
+
+<A NAME="DatePanel">
+<h3>The <code>Date</code> Panel</h3>
+
+The <Code>Date</Code> Panel is where you can add criteria about the modification
+ or creation date of files.<br>
+There are four edit boxes on this panel. All four use <code>parsedate</code> which is
+ a function in the BeOS to convert a string into a date. <code>parsedate</code>
+ understands a large number of formats. Some examples are:
+<UL>
+<LI><code>today</code> which will give you today at 0:00
+<LI><code>today 3:15am </code> which will give you today at 3:15
+<LI><code>last saturday 15:34:11</code> (3:34 PM (and 11 seconds) on the preceding Saturday)
+<LI><code>this monday</code> (the coming monday, 0:00)
+</UL>
+Note though, that <code>parsedate</code> has some problems with commas in the
+ strings, so you are better leaving them out. If FastTraX cannot understand the
+ date you enter, it will being up an alert to inform you.
+<p>
+As with the <CODE>Size</CODE> section of the <A HREF="#FilePanel"><CODE>File</CODE>
+ Panel</A>, there are two edit boxes for the each for <code>Modified</code> and
+ <code>Created</code>. This allows you to specify a range of times to search, thus
+ if you know that you changed the file yesterday, you can enter<br>
+<IMG SRC="gfx/ft_mod.gif" ALIGN="center"><br>
+because &quot;<code>yesterday</code>&quot; will default to 0:00 yesterday, and
+&quot;<code>today</code>&quot; will default to 0:00 today.
+
+<p>
+<hr>
+
+<A NAME="SeeAlso">
+<h3>See Also</h3>
+<UL>
+<LI><A HREF="#results">The Results Window</A>
+<LI><A HREF="#glob">Globs</A>
+</UL>
+
+<p>
+<hr>
+
+Documentation Copyright (C) 1999, Tim Vernum.<br>
+Images Copyright (C) 1999, with the exception of the User and Developer Icons,
+ Copyright Be Inc.<br>
+All rights reserved.
+<p>
+<i>
+<A HREF="mailto:zodsoft@kagi.com">Tim Vernum</A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27th June 1999
+
+</BODY>
+</HTML>

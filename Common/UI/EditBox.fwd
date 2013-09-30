@@ -1,0 +1,17 @@
+#ifndef EDITBOX_FWD
+#define EDITBOX_FWD
+
+/*******************************************************
+ * (c) 1999, Tim Vernum <zodsoft@kagi.com>
+ * All rights reserved
+ *******************************************************
+ * File   : EditBox.fwd
+ * Author : Tim Vernum
+ * Project: Trax Application
+ * Purpose: Forward Declarations of EditBox class
+ * Licence: Public Domain
+ *******************************************************/
+
+class EditBox ;
+
+#endif

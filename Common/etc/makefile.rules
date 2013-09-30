@@ -1,0 +1,27 @@
+ 
+$(COMMON_TGT): $(COMMON_OBJ_DIR) $(COMMON_OB2)
+	$(ECHO_TGT)
+	$(MAKE_TRACKERLIB) $(COMMON_OB2)
+	$(MIMESET)
+
+
+include $(COMMON_DE2)
+
+$(COMMON_DEP_DIR)/%.d: $(SUPPORT_SRC_DIR)/%.cpp
+	@[ -d $(COMMON_DEP_DIR) ] || mkdir $(COMMON_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(COMMON_CFLAGS) -odir $(COMMON_OBJ_DIR)
+
+$(COMMON_DEP_DIR)/%.d: $(UILIB_SRC_DIR)/%.cpp
+	@[ -d $(COMMON_DEP_DIR) ] || mkdir $(COMMON_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(COMMON_CFLAGS) -odir $(COMMON_OBJ_DIR)
+
+$(COMMON_OBJ_DIR)/%.o : $(SUPPORT_SRC_DIR)/%.cpp
+	$(ECHO_FILE)
+	$(MAKE_CC) $(COMMON_CFLAGS)
+
+$(COMMON_OBJ_DIR)/%.o : $(UILIB_SRC_DIR)/%.cpp
+	$(ECHO_FILE)
+	$(MAKE_CC) $(COMMON_CFLAGS)
+	
+$(COMMON_CLEAN):
+	rm -rf $(COMMON_OBJ_DIR) $(COMMON_DEP_DIR)

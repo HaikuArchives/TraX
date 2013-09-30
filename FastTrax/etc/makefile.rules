@@ -1,0 +1,48 @@
+ 
+$(FASTTRAX_TGT): $(FINDLIB_TGT) $(COMMON_TGT) $(FASTTRAX_OBJ_DIR) $(FASTTRAX_OB2) $(FASTTRAX_RSRC)
+	$(MAKE_BEAPP) $(FASTTRAX_LDFLAGS) $(FASTTRAX_OB2)
+	$(ADD_RSRCS) $(FASTTRAX_RSRC)
+	$(MIMESET)
+
+$(FASTTRAX_INSTALL): $(FASTTRAX_TGT) $(FASTTRAX_LIB_DIR) $(FASTTRAX_LIBS)
+	@date "+%a %x, %X" >> $@
+	@echo "Remade targets: $?" >> $@
+	@echo "Installing FastTraX into $(FASTTRAX_TGT)" >> $@
+	@echo "======================================================" >> $@
+	$(TRIM_LOG)
+	@echo "======================================================"
+	@echo "FastTraX Installed"
+	@echo "======================================================"
+
+#$(FASTTRAX_LIB_DIR):
+#	$(MAKE_DIR)
+
+#$(FASTTRAX_LIBFIND): $(FINDLIB_TGT)
+#	$(MAKE_CP)
+#	$(MIMESET)
+
+#$(FASTTRAX_LIBCOMMON): $(COMMON_TGT)
+#	$(MAKE_CP)
+#	$(MIMESET)
+
+
+include $(FASTTRAX_DE2)
+
+$(FASTTRAX_DEP_DIR)/%.d: $(FASTTRAXMAIN_SRC_DIR)/%.cpp
+	@[ -d $(FASTTRAX_DEP_DIR) ] || mkdir $(FASTTRAX_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(FASTTRAX_CFLAGS) -odir $(FASTTRAX_OBJ_DIR)
+
+$(FASTTRAX_DEP_DIR)/%.d: $(FASTTRAXUI_SRC_DIR)/%.cpp
+	@[ -d $(FASTTRAX_DEP_DIR) ] || mkdir $(FASTTRAX_DEP_DIR) > /dev/null 2>&1
+	$(MAKE_DEPEND) $(FASTTRAX_CFLAGS) -odir $(FASTTRAX_OBJ_DIR)
+
+$(FASTTRAX_OBJ_DIR)/%.o : $(FASTTRAXMAIN_SRC_DIR)/%.cpp
+	$(ECHO_FILE)
+	$(MAKE_CC) $(FASTTRAX_CFLAGS)
+
+$(FASTTRAX_OBJ_DIR)/%.o : $(FASTTRAXUI_SRC_DIR)/%.cpp
+	$(ECHO_FILE)
+	$(MAKE_CC) $(FASTTRAX_CFLAGS)
+
+$(FASTTRAX_CLEAN):
+	rm -rf $(FASTTRAX_OBJ_DIR) $(FASTTRAX_DEP_DIR)

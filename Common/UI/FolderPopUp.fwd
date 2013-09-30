@@ -1,0 +1,17 @@
+#ifndef FOLDERPOPUP_FWD
+#define FOLDERPOPUP_FWD
+
+/*******************************************************
+ * (c) 1999, Tim Vernum <zodsoft@kagi.com>
+ * All rights reserved
+ *******************************************************
+ * File   : FolderPopUp.fwd
+ * Author : Tim Vernum
+ * Project: Trax Application
+ * Purpose: Forward Declarations of FolderPopUp class
+ * Licence: Public Domain
+ *******************************************************/
+
+class FolderPopUp  ;
+
+#endif

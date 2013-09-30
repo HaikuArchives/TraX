@@ -1,0 +1,76 @@
+PREAMBLE
+--------
+
+TraX and FastTraX are copyrighted software and are distributed under version 2 of the GNU General Public Licence (GPL).
+You can read the details of the GPL in the file 'GPL' in this directory.
+
+Some sections of the source code fall under different licences.
+Details of such licences are also included here.
+
+WHAT THIS MEANS FOR YOU
+-----------------------
+
+You may use these applications, and any part of them, freely.
+By "freely" I mean that
+ (a) You don't have to pay for them. (although donations are welcome)
+ (b) You may make modifications to them, and distribute the modified
+     versions under the GPL.
+ (c) I place no conditions on what you may use the program for.
+     Commercial, non-commercial, whatever. I don't care.
+
+WHY ?
+-----
+
+A few reasons.
+(a) I'm no longer a student (yay!!), so I'm now working full-time and
+	getting paid well. I don't have any great desire to make a fortune
+	out of this work. I do it all for glor.. err love.
+
+(b) I'm using some GPL'ed components in here, so I have no choice anyway.
+	I could have re-written those bits. But there seemed no point.
+
+(c) I believe that, all things being equal(1), Free Software(2) is better
+	software. Partly because it gives users more rights, and partly
+	because it makes better software.
+	Case in point: I built libfind.so using GNU find. If find wasn't
+	  Free, then I wouldn't have been able to do that, and I wouldn't
+	  have written a replacement that worked as well as find (and
+	  therefore libfind) does.
+
+
+WHY THE MIXTURE OF LICENCES ?
+-----------------------------
+Well, I had to keep libfind.so and fregex.a under the GPL, since they are based on GPL'ed components.
+That meant that TraX and FastTrax had to go under the GPL too.
+So at one level, I was stuck with the GPL.
+
+But I don't think the GPL is the one true way.
+Some of my components are quite simple, but if they make life easier for someone else, then good. Even if they end up in a non-Free program.
+
+So I used a mixture of licences, each file has a licence applied to it, as I see fit.
+
+
+FOOTNOTES
+---------
+
+(1) "all things being equal"
+
+Of course, not all things are equal.
+Take BeOS for example.
+If I had the source to the OS, then I could fix parsedate so that it didn't barf on dates that had "Please set the timezone in the timezone utility" at the end of them. So, all things being equal, I would be better off if I had the source.
+But, if Be starting giving their source away, then there would be radical changes.
+(i) Things could easily fragment, as I fixed something, and then someone else fixed something else, etc.. etc..
+(ii) Be would have to change its business strategy. They would no longer sell the OS, but sell services. That would change the way they work. They might not be able to pay for the engineers anymore.
+
+Ultimately, when you release the source, things change.
+And that change isn't always a good one.
+So sometimes, it is better not to open up the source.
+
+However, no matter what happened, TraX would have been, at best, Shareware. It's not a commercial product, and I don't have the time or inclination to make it one. Given that situation, I think it is better if it is Free. So it is.
+
+
+(2) "Free Software"
+I mean "Free Software" as in "Open Source".
+Not necessarily GPL, but source available, and freely usuable.
+see http://www.fsf.org for more info.
+
