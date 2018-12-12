@@ -1,11 +1,14 @@
 # TraX
+
 ### TraX is a utility to assist in finding files on the BeOS.
 TraX is not a "query" tool. It does not keep a database of files and attributes.
 It is a tradition find tool. It searches the disk every time, looking for files that meet your criteria.
 The find-criteria are not BeOS specific, and it does not (currently) search attributes.
 
-## Install
-#### To install:
+## Building, Compiling and Installing
+#### To Build:
+* On Haiku, run `make`
+#### To Install:
 * On Haiku, run `make install`
 
 #### For more deatils, refer to the [Manual](Docs/Manual.html).
