@@ -1,13 +1,16 @@
 # TraX
 ### TraX is a utility for finding files.
-TraX is not a "query" tool. It does not keep a database of files and attributes. It is a traditional find tool. It searches the disk every time, looking for files that meet your criteria.
+TraX is not a "query" tool. It does not keep a database of files and attributes. It is a traditional find tool, which searches the disk every time, looking for files that meet your criteria.
 The find-criteria are not Haiku specific, and it does not (currently) search attributes.
 
 ## Varieties of TraX
 TraX comes in two varieties.
 * <b>FastTraX</b> is similar to the Windows find tool. Windows users should find its features very familiar.
+
 ![FastTraX](/FastTraX.PNG)
-* <b>TraX</b> is a cross between the UNIX "find" command the the MacOS "Find Files" tool. It has much of the power of "find" with a Mac-like interface (a Mac on steriods that is).
+
+* <b>TraX</b> is a cross between the UNIX "find" command the the MacOS "Find Files" tool. It has much of the power of "find" with a Mac-like interface (a Mac on steroids that is).
+
 ![TraX](/TraX.png)
 
 ## Building, Compiling and Installing
@@ -19,7 +22,7 @@ TraX comes in two varieties.
 #### For more deatils, refer to the [Manual](http://htmlpreview.github.io/?https://github.com/HaikuArchives/TraX/master/Docs/Manual.html).
 
 ## Flaws in Haiku's Query System
-Although Haiku ships with a very powerful query mechanism, this feature has some flaws, that TraX does not suffer.
+Although Haiku comes with a very powerful query mechanism, there are some flaws that TraX does not have.
 Haiku Queries..
 * ... can only search on filesystems that keep indices, i.e. it only works on BFS formatted disks (no Windows, macOS or Linux filesystems).
 * ... cannot search within certain folders only, but must search across the whole disk.
