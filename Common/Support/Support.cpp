@@ -251,10 +251,6 @@ char * StringUtils:: VerboseErrorString( status_t e , char * str )
 			strcpy( str, "B_FILE_ERROR " ) ;
 			break ;
 
-		case B_FILE_NOT_FOUND:
-			strcpy( str, "B_FILE_NOT_FOUND " ) ;
-			break ;
-
 		case B_FILE_EXISTS:
 			strcpy( str, "B_FILE_EXISTS " ) ;
 			break ;
