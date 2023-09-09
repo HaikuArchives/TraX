@@ -1,5 +1,6 @@
  
 $(COMMON_TGT): $(COMMON_OBJ_DIR) $(COMMON_OB2)
+	@[ -d $(COMMON_OUT_DIR) ] || mkdir $(COMMON_OUT_DIR) > /dev/null 2>&1
 	$(ECHO_TGT)
 	$(MAKE_TRACKERLIB) $(COMMON_OB2)
 	$(MIMESET)
