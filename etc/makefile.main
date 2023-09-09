@@ -19,7 +19,7 @@ FASTTRAX_DIR := FastTrax
 OPTIMIZER		=	-O3
 
 CC		     	:=	gcc
-CFLAGS			 =	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy
+CFLAGS			 =	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy -D__USE_GNU -DSTDC_HEADERS
 
 LD				:=	gcc
 LDFLAGS			:=	

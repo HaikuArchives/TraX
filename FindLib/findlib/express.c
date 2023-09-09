@@ -19,6 +19,8 @@
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */ 
 
+#include "config.h"
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/stat.h>
@@ -27,7 +29,6 @@
 #include <ctype.h>
 #include <regex.h>
 
-#include "config.h"
 #include "modechange.h"
 #include "defs.h"
 #include "modetype.h"

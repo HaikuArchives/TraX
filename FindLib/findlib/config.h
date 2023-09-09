@@ -75,6 +75,10 @@
 	#define FS_IS_64BIT 0
 #endif
 
+/* Needed to get the proper code paths */
+#if __HAIKU__
+	#define _POSIX_SOURCE
+#endif
 
 #endif		/* CONFIG_H */
 
