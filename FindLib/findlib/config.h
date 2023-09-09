@@ -28,7 +28,7 @@
 #define HAVE_VPRINTF 1
 
 /* Define if major, minor, and makedev are declared in <sysmacros.h>.  */
-#define MAJOR_IN_SYSMACROS 1
+#undef MAJOR_IN_SYSMACROS
 
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
