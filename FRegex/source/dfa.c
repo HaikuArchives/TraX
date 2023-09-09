@@ -281,7 +281,7 @@ int fold;
 
 static char *lexstart;		/* Pointer to beginning of input string. */
 static char *lexptr;		/* Pointer to next input character. */
-static lexleft;			/* Number of characters remaining. */
+static int lexleft;			/* Number of characters remaining. */
 static token lasttok;		/* Previous token returned; initially END. */
 static int laststart;		/* True if we're separated from beginning or (, |
 				   only by zero-width characters. */
@@ -626,10 +626,12 @@ lex()
 				{
 					setbit(c, ccl);
 					if (case_fold)
+					{
 						if (ISUPPER(c))
 							setbit(tolower(c), ccl);
 						else if (ISLOWER(c))
 							setbit(toupper(c), ccl);
+					}
 					++c;
 				}
 skip:
@@ -670,7 +672,7 @@ normal_char:
 /* Recursive descent parser for regular expressions. */
 
 static token tok;		/* Lookahead token. */
-static depth;			/* Current depth of a hypothetical stack
+static int depth;			/* Current depth of a hypothetical stack
 				   holding deferred productions.  This is
 				   used to determine the depth that will be
 				   required of the real stack later on in
@@ -1461,7 +1463,7 @@ int trans[];
 	int state_newline;		/* New state on a newline transition. */
 	int wants_letter;		/* New state wants to know letter context. */
 	int state_letter;		/* New state on a letter transition. */
-	static initialized;		/* Flag for static initialization. */
+	static int initialized;		/* Flag for static initialization. */
 	int i, j, k;
 
 	/* Initialize the set of letters, if necessary. */
@@ -1799,12 +1801,12 @@ int newline;
 int *count;
 int *backref;
 {
-	register s, s1, tmp;		/* Current state. */
+	register int s, s1, tmp;		/* Current state. */
 	register unsigned char *p;	/* Current input character. */
-	register **trans, *t;		/* Copy of d->trans so it can be optimized
+	register int **trans, *t;		/* Copy of d->trans so it can be optimized
 			   into a register. */
-	static sbit[NOTCHAR];	/* Table for anding with d->success. */
-	static sbit_init;
+	static int sbit[NOTCHAR];	/* Table for anding with d->success. */
+	static int sbit_init;
 
 	if (! sbit_init)
 	{
@@ -1850,10 +1852,12 @@ last_was_s1:
 			if (d->success[s] & sbit[*p])
 			{
 				if (backref)
+				{
 					if (d->states[s].backref)
 						*backref = 1;
 					else
 						*backref = 0;
+				}
 				return (char *) p;
 			}
 
