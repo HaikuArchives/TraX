@@ -17,6 +17,7 @@
  *******************************************************/
 
 #include <List.h>
+#include <Message.h>
 
 class BWindow ;
 

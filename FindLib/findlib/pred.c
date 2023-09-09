@@ -29,7 +29,7 @@
    include directory. */
 #include "fnmatch.h"
 #include "modetype.h"
-#include "wait.h"
+#include <sys/wait.h>
 
 #ifndef HAVE_VFORK
 #define vfork fork

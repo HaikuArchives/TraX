@@ -69,7 +69,7 @@ extern void free();
 #endif
 
 #include "dfa.h"
-#include "regex.h"
+#include <regex.h>
 
 #if __STDC__
 typedef void *ptr_t;
