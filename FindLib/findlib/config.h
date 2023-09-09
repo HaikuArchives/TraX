@@ -69,7 +69,7 @@
 /* For 64bit filesystems, we need to put 'L' in printf, rather than a 'l' */
 #undef FS_IS_64BIT
 
-#if __BEOS__
+#if __BEOS__ || __HAIKU__
 	#define FS_IS_64BIT 1
 #else
 	#define FS_IS_64BIT 0
