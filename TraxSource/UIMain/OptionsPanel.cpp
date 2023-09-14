@@ -133,6 +133,7 @@ void OptionsPanel :: AttachedToWindow( void )
 	r.left   = 10 ;
 	r.right  = r.left + 50 ;
 	
+/** Disable for now, until we reimplement the missing SettingsWindow functionality.
 	BButton * settingsButton = new BButton( r, "settings", "Settings" B_UTF8_ELLIPSIS,
 								new BMessage( Messages::Settings ) ,
 								B_FOLLOW_LEFT | B_FOLLOW_TOP ) ;
@@ -142,7 +143,7 @@ void OptionsPanel :: AttachedToWindow( void )
 		
 	r.right = fr.Width() - 25 ;
 	r.left  = r.right - 50 ;
-
+*/
 	fpFindButton = new BButton( r, "go", "Find",
 							  new BMessage( Messages::StartFind ) ,
 							  B_FOLLOW_RIGHT | B_FOLLOW_TOP ) ;
