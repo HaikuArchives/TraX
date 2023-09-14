@@ -23,7 +23,7 @@ CFLAGS			 =	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy -D__USE_GNU
 
 LD				:=	gcc
 LDFLAGS			:=	
-SHAREDLIB_FLAGS	 = -nostart -Xlinker -soname=$(notdir $@)
+SHAREDLIB_FLAGS	 = -shared -Xlinker -soname=$(notdir $@)
 APP_FLAGS        = -Xlinker -soname=_APP_
 
 XRES		    := xres

@@ -419,7 +419,7 @@ bool FastTraxWindow::QuitRequested( void )
 			msgr.SendMessage( &msg , &reply ) ;
 		}
 	}
-	return inherited :: QuitRequested( ) ;
+	return  BWindow::QuitRequested( ) ;
 }
 
 // -1 Kill
@@ -625,7 +625,7 @@ void FastTraxWindow :: MessageReceived( BMessage * msg )
 		}		
 		default:
 		{
-			inherited::MessageReceived( msg ) ;
+			BWindow::MessageReceived( msg ) ;
 		}
 	}
 }

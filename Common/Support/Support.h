@@ -60,13 +60,13 @@ namespace ObjectUtils
 {
 	// Duplicates an object from another pointer
 	template <class T>
-	inline T* Dup( T* )
+	inline T* Dup( T* t )
 	{
 		return new T( *t ) ;
 	}  
 
 	template <class T>
-	inline void Swap( T& , T& )
+	inline void Swap( T& a, T& b )
 	{
 		T c = a ;
 		a = b ;

@@ -34,7 +34,7 @@ struct fast_regex
 
 typedef struct fast_regex fast_regex_t ;
  
-int (*fast_regex_subsys_error)( const char * sys, const char * msg ) ;
+//int (*fast_regex_subsys_error)( const char * sys, const char * msg ) ;
 
 int  allocate_fast_regex ( fast_regex_t * ) ;
 int  compile_fast_regex  ( fast_regex_t *, const char *, size_t ) ;
