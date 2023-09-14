@@ -245,7 +245,7 @@ void OptionsPanel :: StartFind( void )
 	if( fpMaxDepthCheck->Value() )
 	{
 		int32 i = fpMaxDepthEdit->GetInt() ;
-		printf("MaxDepth: %ld\n", i ) ;
+		printf("MaxDepth: %" B_PRId32 "\n", i ) ;
 
 		/* Add 1. Because maxdepth 0 => folder only
 		 * We want 0 => folder contents only
