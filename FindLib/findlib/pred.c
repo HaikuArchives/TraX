@@ -29,7 +29,7 @@
    include directory. */
 #include "fnmatch.h"
 #include "modetype.h"
-#include "wait.h"
+#include <sys/wait.h>
 
 #ifndef HAVE_VFORK
 #define vfork fork
@@ -1373,7 +1373,7 @@ struct predicate *pred_ptr ;
 	if ( first_time )
 	{
 		first_time = 0 ;
-#ifndef __BEOS__
+#if !defined(__BEOS__) && !defined(__HAIKU__)
 		/* GG-local: Current behavior under BeOS seems to be different than what SIG_DFL
 		    should imply, which would be to ignore SIGCHLD.  Instead it seems to cause the
 		    parent to be terminated when SIGCHLD is received. */

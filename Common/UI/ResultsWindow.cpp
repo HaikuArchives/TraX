@@ -89,7 +89,7 @@ ResultsWindow :: ResultsWindow( void )
 ResultsWindow :: ~ResultsWindow( void )
 {
 	BListItem * bli ;
-	while(  (bli = fpList->RemoveItem(0L)) != NULL )
+	while ((bli = fpList->RemoveItem(static_cast<int32>(0L))) != NULL)
 		delete bli ;
 }
 
@@ -132,7 +132,7 @@ bool ResultsWindow :: QuitRequested( void )
 		}
 	}
 	
-	return inherited::QuitRequested() ;
+	return BWindow::QuitRequested() ;
 }
 
 void ResultsWindow :: MessageReceived( BMessage * msg )
@@ -153,7 +153,7 @@ void ResultsWindow :: MessageReceived( BMessage * msg )
 
 		default:
 		{
-			inherited::MessageReceived( msg ) ;
+			BWindow::MessageReceived( msg ) ;
 			break ;
 		}
 	}

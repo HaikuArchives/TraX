@@ -19,13 +19,16 @@
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */ 
 
+#include "config.h"
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <grp.h>
 #include <pwd.h>
+#include <ctype.h>
+#include <regex.h>
 
-#include "config.h"
 #include "modechange.h"
 #include "defs.h"
 #include "modetype.h"
@@ -39,7 +42,7 @@ static int insert_fprintf_main ( FILE * fp, boolean ( *func ) () , char * fmt ) 
 static int insert_days ( enum comparison_type c_type , unsigned long num_days, PFB pred ) ;
 static int insert_time ( enum comparison_type c_type , time_t t , PFB pred ) ;
 
-int ( *xstat ) () = lstat ;
+//int ( *xstat ) () = lstat ;
 
 #define ISDIGIT(c) (isascii (c) && isdigit (c))
 #define ISUPPER(c) (isascii (c) && isupper (c))

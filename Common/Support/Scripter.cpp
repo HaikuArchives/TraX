@@ -40,7 +40,7 @@ Scripter :: Scripter( const char * s, property_info* pi )
 		fprintf( stderr, "Created Scripter (%p) as\n\
 Suite: %s\n\
 property_info *: %p\n\
-Default Options: %lu\n", this, fSuite, pi, fOptions ) ;
+Default Options: %" B_PRIu32 "\n", this, fSuite, pi, fOptions ) ;
 	}
 }
 
@@ -55,7 +55,7 @@ Scripter :: Scripter( const char * s, property_info* pi, uint32 opt )
 		fprintf( stderr, "Created Scripter (%p) as\n\
 Suite: %s\n\
 property_info *: %p\n\
-Set Options: %lu\n", this, fSuite, pi, fOptions ) ;
+Set Options: %" B_PRIu32 "\n", this, fSuite, pi, fOptions ) ;
 	}
 }
 
@@ -138,7 +138,7 @@ int32 Scripter :: FindMatch( BMessage * m, int32 i,
 	int32 idx = fPropInfo.FindMatch( m, i, s, w, prop) ;
 
 	if( fOptions & PrintDebug )
-		fprintf( stderr, "Match for %s is %ld (%p)\n", prop, idx, this ) ;
+		fprintf( stderr, "Match for %s is %" B_PRId32 " (%p)\n", prop, idx, this ) ;
 
 	// clean up
 	delete[] buff ;

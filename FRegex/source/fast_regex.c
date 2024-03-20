@@ -1,11 +1,9 @@
 #include "defs.h"
 
-#include <stdio.h>
-#include <stdio.h>
-
-#include <stdio.h>
-#include <string.h>
 #include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int (*fast_regex_subsys_error)( const char * ,const char * ) ;
 int fprintf_error( const char * sys, const char * error )

@@ -3,6 +3,7 @@
 
 #include <Rect.h>
 #include <Message.h>
+#include <View.h>
 
 /*
  *       Class: RefDragMessage

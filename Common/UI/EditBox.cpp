@@ -126,28 +126,28 @@ void EditBox :: SetFloat( float f , const char * fmt )
 void  EditBox :: SetInt( int32 i )
 {
 	char str[64] ;
-	sprintf( str, "%ld", i ) ;
+	sprintf( str, "%" B_PRId32, i ) ;
 	fpTextView->SetText( str ) ;
 }
 
 void  EditBox :: SetIntOct( int32 i )
 {
 	char str[64] ;
-	sprintf( str, "%lo", i ) ;
+	sprintf( str, "%" B_PRIo32, (uint32) i ) ;
 	fpTextView->SetText( str ) ;
 }
 
 void  EditBox :: SetIntHex( int32 i )
 {
 	char str[64] ;
-	sprintf( str, "%lx", i ) ;
+	sprintf( str, "%" B_PRIx32, (uint32) i ) ;
 	fpTextView->SetText( str ) ;
 }
 
 void  EditBox :: SetIntHEX( int32 i )
 {
 	char str[64] ;
-	sprintf( str, "%lX", i ) ;
+	sprintf( str, "%" B_PRIX32, (uint32) i ) ;
 	fpTextView->SetText( str ) ;
 }
 

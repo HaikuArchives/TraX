@@ -15,6 +15,7 @@
 #include "Panel.h"
 #endif
 
+class BButton;
 class BCheckBox ;
 class BarberPole ;
 class ColouredView ;

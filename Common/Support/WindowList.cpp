@@ -93,7 +93,7 @@ void WindowList :: CloseAll( void )
 {
 	Lock() ;
 	void * v ;
-	while( (v = fList.RemoveItem( 0L )) != NULL )
+	while( (v = fList.RemoveItem( (int32)0L )) != NULL )
 	{
 		reinterpret_cast<BWindow *>( v )->Quit() ;
 	}

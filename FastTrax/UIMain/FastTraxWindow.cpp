@@ -140,11 +140,13 @@ FastTraxWindow :: FastTraxWindow( entry_ref * ref  )
 	r = button->Frame() ;
 	r.OffsetTo( r.left, r.bottom + 7 ) ;
 
+/** Disable for now, until we reimplement the missing SettingsWindow functionality.
 	button = new BButton( r , "settings", "Settings",  
 		new BMessage( Messages::SettingsRequested ) ) ;
 	rightView->AddChild( button ) ;
 	button->ResizeToPreferred() ;
 	r = button->Frame() ;
+*/
 	r.OffsetTo( r.left, r.bottom + 7 ) ;
 	
 	rightView->ResizeTo( r.right + 7 , r.bottom + 7 ) ;
@@ -419,7 +421,7 @@ bool FastTraxWindow::QuitRequested( void )
 			msgr.SendMessage( &msg , &reply ) ;
 		}
 	}
-	return inherited :: QuitRequested( ) ;
+	return  BWindow::QuitRequested( ) ;
 }
 
 // -1 Kill
@@ -625,7 +627,7 @@ void FastTraxWindow :: MessageReceived( BMessage * msg )
 		}		
 		default:
 		{
-			inherited::MessageReceived( msg ) ;
+			BWindow::MessageReceived( msg ) ;
 		}
 	}
 }

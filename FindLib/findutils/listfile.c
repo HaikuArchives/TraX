@@ -67,7 +67,7 @@ extern int errno;
 #endif
 
 #if defined(S_ISLNK)
-#ifndef __BEOS__
+#if !defined(__BEOS__) && !defined(__HAIKU__)
 int readlink ();
 #endif
 #endif
@@ -159,7 +159,7 @@ list_file (name, relname, statp, stream)
     }
   timebuf[16] = 0;
 
-#ifdef __BEOS__
+#if defined(__BEOS__) || defined(__HAIKU__)
   fprintf (stream, "%6Lu ", statp->st_ino);
   fprintf (stream, "%4Lu ", convert_blocks (ST_NBLOCKS (statp),kilobytes));
 #else
@@ -183,7 +183,7 @@ list_file (name, relname, statp, stream)
     fprintf (stream, "         ");
 #endif
   else
-#ifdef __BEOS__
+#if defined(__BEOS__) || defined(__HAIKU__)
     fprintf (stream, "%8Lu ", statp->st_size);
 #else
     fprintf (stream, "%8lu ", statp->st_size);

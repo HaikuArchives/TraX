@@ -17,6 +17,9 @@ Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #include "obstack.h"
 
+/* For abort() */
+#include <stdlib.h>
+
 /* This is just to get __GNU_LIBRARY__ defined.  */
 #include <stdio.h>
 
