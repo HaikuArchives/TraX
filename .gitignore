@@ -1,0 +1,12 @@
+# output files
+bin/FastTraX
+bin/TraX
+
+# intermediate files from the build
+*/depends/
+*/lib/*.a
+*/lib/*.so
+*/obj.r*/
+
+# install log files
+etc/*_log
