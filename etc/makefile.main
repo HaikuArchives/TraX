@@ -52,6 +52,7 @@ MAKE_TRACKERLIB  = $(MAKE_BELIB) -ltracker
 MAKE_APP		 = $(LD) -o $@ $(LDFLAGS) $(APP_FLAGS)
 MAKE_BEAPP		 = $(MAKE_APP) -lbe
 MAKE_TRACKERAPP  = $(MAKE_BEAPP) -ltracker
+MAKE_RSRCS		 = rc -o $@ $<
 ADD_RSRCS        = $(XRES) -o $@
 MIMESET			 = mimeset -f $@
 TRIM_LOG		 = ./etc/TrimLog.sh $@ 250

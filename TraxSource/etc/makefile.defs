@@ -15,7 +15,8 @@ TRAX_LIBFIND      := $(TRAX_LIB_DIR)/$(notdir $(FINDLIB_TGT))
 TRAX_LIBCOMMON    := $(TRAX_LIB_DIR)/$(notdir $(COMMON_TGT))
 TRAX_LIBS         := $(TRAX_LIBFIND) $(TRAX_LIBCOMMON)
 
-TRAX_RSRC      := $(TRAX_ETC_DIR)/TraX.rsrc
+TRAX_RDEF      := $(TRAX_ETC_DIR)/TraX.rdef
+TRAX_RSRC      := $(TRAX_OBJ_DIR)/TraX.rsrc
 TRAX_TGT       := $(TRAX_OUT_DIR)/TraX
 TRAX_INSTALL   := $(ETC_DIR)/trax_install_log
 TRAXMAIN_SRC   := $(wildcard $(TRAXMAIN_SRC_DIR)/*.cpp)
