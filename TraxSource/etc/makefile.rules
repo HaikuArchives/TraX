@@ -4,6 +4,9 @@ $(TRAX_TGT): $(FINDLIB_TGT) $(COMMON_TGT) $(TRAX_OBJ_DIR) $(TRAX_OB2) $(TRAX_RSR
 	$(ADD_RSRCS) $(TRAX_RSRC)
 	$(MIMESET)
 
+$(TRAX_RSRC): $(TRAX_RDEF)
+	$(MAKE_RSRCS)
+
 $(TRAX_INSTALL): $(TRAX_TGT) $(TRAX_LIB_DIR) $(TRAX_LIBS)
 	@date "+%a %x, %X" >> $@
 	@echo "Remade targets: $?" >> $@
