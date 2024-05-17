@@ -7,7 +7,7 @@ DEP_DIR := depends
 
 
 
-OPTIMIZER		=	-O0
+OPTIMIZER		=	-O3
 
 CC		     	=	gcc
 
@@ -19,7 +19,7 @@ HAIKU_HREV_NUM = $(shell uname -v | cut -d " " -f 1 | cut -d "+" -f 1 | sed s/hr
 HAS_FIXED_FEATURES_H = $(shell if [ $(strip $(HAIKU_HREV_NUM)) -ge 57497 ]; then echo "YES"; else echo "NO"; fi)
 
 ifeq ($(strip $(HAS_FIXED_FEATURES_H)), YES)
-	CFLAGS	=	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy -D_DEFAULT_SOURCE -DSTDC_HEADERS
+	CFLAGS	=	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy
 else
 	CFLAGS	=	$(OPTIMIZER) -Wall -Wno-multichar -Wno-ctor-dtor-privacy -D__USE_GNU -DSTDC_HEADERS
 endif
