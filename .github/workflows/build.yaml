@@ -27,5 +27,5 @@ jobs:
           version: ${{ matrix.config.version }}
           architecture: ${{ matrix.config.architecture }}
           run: |
-            ssh user@localhost "pkgman update -y haiku_devel makefile_engine cmd:make cmd:gcc cmd:as" &&
+            ssh user@localhost "pkgman update -y makefile_engine cmd:make cmd:gcc cmd:as" &&
             make
